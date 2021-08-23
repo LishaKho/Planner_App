@@ -9,15 +9,19 @@ const UserForm = (props) =>{
 
         console.log('input name ' + e.target.name);
 
-        let newUserObj = [...user]
+        let newUserObj = {...user}
         newUserObj[e.target.name] = e.target.value;
+
+        setUser(newUserObj);
     }
+
+
 
     return(
         <div>
             <form onSubmit={handler}>
                 <div className={'form-group'}>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="">Username:</label>
                     {
                         errors.username? <span className={'text-danger'}>{errors.username.message}</span>:
                             null

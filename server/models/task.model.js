@@ -10,7 +10,7 @@ const TaskSchema = new mongoose.Schema({
 
     priority:{
         type: String,
-        required: [true, "Category is required"],
+        required: [true, "Priority is required"],
         enum:[
             'extremely high',
             'high',
@@ -19,7 +19,6 @@ const TaskSchema = new mongoose.Schema({
         ],
 
     },
-
     description:{
         type: String,
         require: [false, 'Task Description is not required'],
