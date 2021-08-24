@@ -34,10 +34,11 @@ const Registration = (props) =>{
     }
 
     return(
-        <div>
-            <h1>User Registration</h1>
+        <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
+            <h1 style={{ color: "#2E5266" }}>User Registration</h1>
             <UserForm user={userObj} errors={errors} setUser={setUserObj} handler={register}/>
         </div>
+        
     )
 }
 
