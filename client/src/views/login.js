@@ -31,19 +31,33 @@ const Login = (props) =>{
     return(
         <div>
             <NavButtons button1={'home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/>
-            <div>
-                <h1>Welcome Back</h1>
-                <form onSubmit={login}>
-                    <div className={'form-group'}>
-                        <label htmlFor="">Username</label>
-                        <input type="text" className={'form-control'} name={'username'} onChange={(e)=>setUsername(e.target.value)}/>
+            <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
+                <h1 style={{ color: "#2E5266" }}>Welcome Back</h1>
+                <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
+                    <div className="d-flex align-items-start h-100">
+                        <div className="container h-100">
+                            <div className="row d-flex justify-content-center align-items-start h-100">
+                                <div className="col-8 col-sm-7">
+                                    <div className="card" style={{backgroundColor: "#9FB1BC", borderRadius: "15px"}}>
+                                        <div className="card-body p-4">
+                                            <form onSubmit={login}>
+                                                <div className="form-outline mb-4">
+                                                    <label className="form-label" htmlFor="">Username:</label>
+                                                    <input className="form-control form-control-md" type="text" className={'form-control'} name={'username'} onChange={(e)=>setUsername(e.target.value)}/>
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <label className="form-label" htmlFor="">Password:</label>
+                                                    <input className="form-control form-control-md" type="password" className={'form-control'} name={'password'} onChange={(e)=>setPassword(e.target.value)}/>
+                                                </div>
+                                                <input type="submit" value={'Login'} style={{ backgroundColor: "#6E8898", color: "white" }}/>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={'form-group'}>
-                        <label htmlFor="">Password</label>
-                        <input type="password" className={'form-control'} name={'password'} onChange={(e)=>setPassword(e.target.value)}/>
-                    </div>
-                    <input type="submit" value={'Login'}/>
-                </form>
+                </div>
             </div>
 
         </div>
