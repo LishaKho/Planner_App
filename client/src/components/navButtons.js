@@ -3,14 +3,16 @@ import {Link} from "@reach/router";
 
 
 const NavButtons = (props)=>{
-    const {button1, handler1, button2, handler2, image} = props;
+    const {button1, button1URL, button2, button2URL, image} = props;
     return(
-        <div className={'row'}>
-            <div className={'col'}>
-                <img src={image} alt={'Logo'}/>
-            </div>
-            <div className={'col'}>
-                <button onClick={handler1}>{button1}</button><button onClick={handler2}>{button2}</button>
+        <div style={{ backgroundColor: "#D3D0CB" }}>
+            <div className={'row'}>
+                <div className={'col'}>
+                    <img src={image} alt={'Logo'}/>
+                </div>
+                <div className={'col'}>
+                    <Link to={button1URL} className={'btn'}>{button1}</Link><Link to={button2URL} className={'btn'}>{button2}</Link>
+                </div>
             </div>
         </div>
     )
