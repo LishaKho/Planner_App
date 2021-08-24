@@ -6,9 +6,11 @@ import NavButtons from "../components/navButtons";
 import {navigate} from "@reach/router";
 import Moment from "moment";
 import Sort from 'sort-objects-array';
+import {orderBy} from "natural-orderby";
 
 const ToDoPage = (props)=>{
     const [errors, setErrors] = useState({})
+    const [endDate, setEndDate] = useState(false)
     const [date, setDate] = useState(false);
     const [priority, setPriority] = useState(false);
     const [task, setTask] = useState(false);
@@ -59,21 +61,54 @@ const ToDoPage = (props)=>{
         e.preventDefault();
         let sorted = Sort(tasks, 'name');
         setTasks(sorted);
-        setTask(false);
+        setTask(true);
     }
 
     const sortTaskDesc = (e) =>{
         e.preventDefault();
         let sorted = Sort(tasks, 'name', 'desc');
         setTasks(sorted);
-        setTask(true);
+        setTask(false);
+    }
+
+    const sortDateDesc =(e)=>{
+        e.preventDefault()
+        let sorted = orderBy(tasks,
+            [v => v.startBy, v => v.completeBy],
+            ['desc', "desc"]
+        )
+        setTasks(sorted);
+        setDate(false);
     }
 
     const sortDateAsc = (e)=>{
+        e.preventDefault()
+        let sorted = orderBy( tasks,
+            [v => v.startBy, v=> v.completeBy],
+            ['asc', "asc"]
+        )
+        setTasks(sorted);
+        setDate(true);
+    }
+
+    const sortEndDateDesc = (e)=>{
+        e.preventDefault()
+        let sorted = orderBy(tasks,
+            [v=> v.completeBy, v=> v.completeBy],
+            ['desc', 'desc']
+        )
+        setTasks(sorted);
+        setEndDate(false);
+    }
+
+    const sortEndDateAsc = (e) =>{
         e.preventDefault();
-        let sort = Sort(tasks, 'startBy');
-        setTasks(sort);
-        setDate(false);
+        let sorted = orderBy(tasks,
+            [v=> v.completeBy, v=> v.completeBy],
+            ['asc', 'asc']
+        )
+        setTasks(sorted);
+        setEndDate(true);
     }
 
 
@@ -154,14 +189,14 @@ const ToDoPage = (props)=>{
 
     return(
         <div>
-            <NavButtons button1={'open'} handler2={logOut} button2={'Logout'}/>
+            <NavButtons handler={logOut} button1={"LogOut"}  />
             <div className={'d-inline-block align-top mt-5'}>
                 <h2>Add a Task</h2>
                 <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} addTask={setUpdatedTaskObj} errors={errors} setErrors={setErrors} handler={addTaskHandler} buttonLabel={'Add Task'}/>
             </div>
             <div className={'d-inline-block align-top mt-5'}>
                 <h2>Your To-Do List</h2>
-                <ToDoList toDoList={tasks} dateSortAce={sortDateAsc} prioritySortAce={sortPriorityAce} taskSortAce={sortTaskAce} taskSortDesc={sortTaskDesc} prioritySortDesc={sortPriorityDesc} priority={priority} task={task} date={date} setUpdatedTaskObj={setUpdatedTaskObj} handler={deleteTask} />
+                <ToDoList toDoList={tasks} endDateSortAsc={sortEndDateAsc} endDateSortDesc={sortEndDateDesc} dateSortDesc={sortDateDesc} dateSortAce={sortDateAsc} prioritySortAce={sortPriorityAce} taskSortAce={sortTaskAce} taskSortDesc={sortTaskDesc} prioritySortDesc={sortPriorityDesc} priority={priority} task={task} date={date} endDate={endDate} setUpdatedTaskObj={setUpdatedTaskObj} handler={deleteTask} />
             </div>
         </div>
     )

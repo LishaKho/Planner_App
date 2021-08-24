@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const ToDoList = (props) =>{
-    const {toDoList, setUpdatedTaskObj, prioritySortAce, prioritySortDesc, task, priority, taskSortAce, taskSortDesc, date, dateSortAce,  handler} = props;
+    const {toDoList, setUpdatedTaskObj, endDateSortAsc, endDateSortDesc, prioritySortAce, dateSortDesc, prioritySortDesc, task, priority, endDate, taskSortAce, taskSortDesc, date, dateSortAce,  handler} = props;
 
 
     const completed = (e, id)=>{
@@ -47,12 +47,12 @@ const ToDoList = (props) =>{
 
                         }  </th>
                         <th className={'ms-2 me-2'}>Tasks { task?
-                            <svg onClick={(e)=>taskSortAce(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            <svg onClick={(e)=>taskSortDesc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  className="bi bi-caret-up-fill" viewBox="0 0 16 16">
                                 <path
                                     d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
                             </svg>
-                            : <svg onClick={(e)=>taskSortDesc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            : <svg onClick={(e)=>taskSortAce(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                    className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -62,12 +62,12 @@ const ToDoList = (props) =>{
                         } </th>
                         <th className={'ms-2 me-2'}>Start Date
                             { date?
-                                <svg onClick={(e)=>dateSortAce(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                <svg onClick={(e)=>dateSortDesc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      className="bi bi-caret-up-fill" viewBox="0 0 16 16">
                                     <path
                                         d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
                                 </svg>
-                                : <svg onClick={(e)=>taskSortDesc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                :<svg onClick={(e)=> dateSortAce(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                        className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -75,7 +75,21 @@ const ToDoList = (props) =>{
 
 
                             }</th>
-                        <th className={'ms-2 me-2'}>Complete By</th>
+                        <th className={'ms-2 me-2'}>Complete By
+                            { endDate?
+                                <svg onClick={(e)=>endDateSortDesc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     className="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                </svg>
+                                :<svg onClick={(e)=> endDateSortAsc(e)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                      className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                </svg>
+
+
+                            }</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -84,7 +98,7 @@ const ToDoList = (props) =>{
                     toDoList.map((task, index)=>{
 
                         return(
-                            <tr key={index} className={Moment(task.completeBy).diff(task.startBy, 'days') < 3? 'text-warning': 'text-dark' }>
+                            <tr key={index} className={Moment(task.completeBy).diff(task.startBy, 'days') < 3? 'text-danger': 'text-dark' }>
                                 <td><input type="checkbox" checked={task.isComplete} onChange={(e)=>completed(e, task._id)}/>
                                 </td>
                                 <td> {task.isComplete? <del>{task.priority.toUpperCase()}</del>
