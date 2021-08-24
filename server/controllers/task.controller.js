@@ -9,8 +9,12 @@ module.exports ={
 
         console.log('inside get all');
 
-        Task.find()
-            .populate('createdBy', 'username email')
+        const decodedJWT = jwt.decode(request.cookies.userToken, {complete: true});
+
+        let userId = decodedJWT.payload.user_id;
+
+        Task.find({createdBy: userId})
+            // .populate('createdBy', 'username email')
             .then((allTask)=>{
 
                 console.log(allTask);
@@ -34,6 +38,7 @@ module.exports ={
         const decodedJWT = jwt.decode(request.cookies.userToken, {complete: true});
 
         newTaskObj.createdBy = decodedJWT.payload.user_id;
+
 
         Task.create(newTaskObj)
             .then((newTask)=>{
@@ -67,17 +72,19 @@ module.exports ={
         console.log('looking for id ' + request.params.id)
         console.log(request.body);
 
-        Task.findByIdAndUpdate(request.body.id, request.body, {
+        Task.findByIdAndUpdate(request.params.id, request.body, {
             new : true,
-            runValidators: true
+            runValidators: true,
         })
 
             .then((updatedTask)=>{
+                console.log('update success')
                 console.log(updatedTask);
                 response.json(updatedTask);
             })
 
             .catch((error)=>{
+                console.log('error updating')
                 console.log(error);
                 response.status(400).json(error);
             })

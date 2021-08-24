@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, navigate} from "@reach/router";
+import {navigate} from "@reach/router";
 import axios from "axios";
 import NavButtons from "../components/navButtons";
 

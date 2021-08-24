@@ -4,6 +4,7 @@ import './App.css';
 import Login from "./views/login";
 import Registration from "./views/registration";
 import ToDoPage from "./views/toDoPage";
+import EditTask from "./views/editTask";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Login default path={'/'}/>
         <Registration path={'/registration'}/>
         <ToDoPage path={'/myPlanner'}/>
+        <EditTask path={'/myPlanner/:id'}/>
       </Router>
     </div>
   );

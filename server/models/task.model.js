@@ -10,12 +10,12 @@ const TaskSchema = new mongoose.Schema({
 
     priority:{
         type: String,
-        required: [true, "Priority is required"],
+        default: 'routine',
+
         enum:[
             'extremely high',
             'high',
             'routine',
-            'low'
         ],
 
     },
@@ -32,7 +32,7 @@ const TaskSchema = new mongoose.Schema({
 
     completeBy:{
         type: Date,
-        require: [true, 'Completion date is required']
+        required: [true, 'Completion date is required']
     },
 
     isComplete:{
