@@ -27,7 +27,7 @@ const UserForm = (props) =>{
                                 <div className="card-body p-4">
                                         <form className="container" onSubmit={handler}>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="">Username:</label>
+                                                <label className="form-label" htmlFor="">Username:</label><br/>
                                                 {
                                                     errors.username? <span className={'text-danger'}>{errors.username.message}</span>:
                                                         null
@@ -35,7 +35,7 @@ const UserForm = (props) =>{
                                                 <input type="text" name={'username'} className="form-control form-control-md" onChange={(e)=>inputChange(e)}/>
                                             </div>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="first name">First Name:</label>
+                                                <label className="form-label" htmlFor="first name">First Name:</label><br/>
                                                 {
                                                     errors.firstName? <span className={'text-danger'}>{errors.firstName.message}</span>:
                                                         null
@@ -43,7 +43,7 @@ const UserForm = (props) =>{
                                                 <input type="text" name={'firstName'} className="form-control form-control-md" onChange={(e)=>inputChange(e)}/>
                                             </div>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="last name">Last Name:</label>
+                                                <label className="form-label" htmlFor="last name">Last Name:</label><br/>
                                                 {
                                                     errors.lastName? <span className={'text-danger'}>{errors.lastName.message}</span>:
                                                         null
@@ -51,7 +51,7 @@ const UserForm = (props) =>{
                                                 <input type="text" name={'lastName'} className="form-control form-control-md" onChange={(e)=>{inputChange(e)}}/>
                                             </div>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="email">Email:</label>
+                                                <label className="form-label" htmlFor="email">Email:</label><br/>
                                                 {
                                                     errors.email? <span className={'text-danger'}>{errors.email.message}</span>:
                                                         null
@@ -59,7 +59,7 @@ const UserForm = (props) =>{
                                                 <input type="email" name={'email'} className="form-control form-control-md" onChange={(e)=>inputChange(e)}/>
                                             </div>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="password">Password:</label>
+                                                <label className="form-label" htmlFor="password">Password:</label><br/>
                                                 {
                                                     errors.password? <span className={'text-danger'}>{errors.password.message}</span>:
                                                         null
@@ -67,7 +67,7 @@ const UserForm = (props) =>{
                                                 <input type="password" name={'password'} className="form-control form-control-md" onChange={(e)=>inputChange(e)}/>
                                             </div>
                                             <div className="form-outline mb-4">
-                                                <label className="form-label" htmlFor="confirmPassword">Confirm Password:</label>
+                                                <label className="form-label" htmlFor="confirmPassword">Confirm Password:</label><br/>
                                                 {
                                                     errors.confirmPassword? <span className={'text-danger'}>{errors.confirmPassword.message}</span>:
                                                         null
@@ -89,4 +89,3 @@ const UserForm = (props) =>{
 export default UserForm;
 
 
-//className="col-12 col-md-9 col-lg-7 col-xl-6"

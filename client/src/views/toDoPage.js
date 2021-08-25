@@ -189,7 +189,7 @@ const ToDoPage = (props)=>{
 
     return(
         <div>
-            <NavButtons handler={logOut} button1={"LogOut"}  />
+            <NavButtons button1={'home'} button1URL={' '} button2={'Logout'} handler={logOut} button2URL={'/registration'}/>
             <div className={'d-inline-block align-top mt-5'}>
                 <h2>Add a Task</h2>
                 <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} addTask={setUpdatedTaskObj} errors={errors} setErrors={setErrors} handler={addTaskHandler} buttonLabel={'Add Task'}/>
