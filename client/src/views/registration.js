@@ -36,6 +36,7 @@ const Registration = (props) =>{
 
     return(
         <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
+            <NavButtons button1={'home'} button1URL={'/'} button2={'LogIn'} button2URL={'/'}/>
             <div className="container h-50">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -48,9 +49,6 @@ const Registration = (props) =>{
                     </div>
                 </div>
             </div>
-            <NavButtons button1={'home'} button1URL={'/'} button2={'LogIn'} button2URL={'/'}/>
-            <h1 style={{ color: "#2E5266" }}>User Registration</h1>
-            <UserForm user={userObj} errors={errors} setUser={setUserObj} handler={register}/>
         </div>
         
     )

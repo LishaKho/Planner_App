@@ -4,7 +4,7 @@ import TaskForm from "../components/taskForm";
 import NavButtons from "../components/navButtons";
 import axios from "axios";
 import Moment from "moment";
-import NavButtons from "../components/navButtons";
+
 
 const EditTask = (props)=>{
     const {id} = props;
@@ -85,6 +85,7 @@ const EditTask = (props)=>{
 
     return(
         <div>
+            <NavButtons button1={'Back To-Do-List'} button1URL={'/myPlanner'} button2={'Logout'} handler={logOut} />
             {/* <NavButtons button1={'home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/> */}
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -96,9 +97,6 @@ const EditTask = (props)=>{
                     </div>
                 </div>
             </div>
-            <NavButtons button1={'Back To-Do-List'} button1URL={'/myPlanner'} button2={'Logout'} handler={logOut} />
-            <h1>Edit Task</h1>
-            <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} handler={editTask} setErrors={setErrors} errors={errors} />
         </div>
 
     )
