@@ -32,7 +32,7 @@ const Login = (props) =>{
         <div>
             <NavButtons button1={'home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/>
             <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
-                <h1 style={{ color: "#2E5266" }}>Welcome Back</h1>
+                <h1 style={{ color: "#2E5266" }}>Welcome Back!</h1>
                 <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
                     <div className="d-flex align-items-start h-100">
                         <div className="container h-100">

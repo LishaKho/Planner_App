@@ -34,7 +34,7 @@ const TaskForm = (props) =>{
                 </div>
                 <div className={'row'}>
                     <div className={'col'}>
-                        <label htmlFor="">Start Date</label><br/>
+                        <label htmlFor="">Start Date:</label><br/>
                         {
                             errors.startBy? <span className={'text-danger'}>{errors.startBy.message}</span>: null
                         }
@@ -54,26 +54,26 @@ const TaskForm = (props) =>{
                         <input type="date" name={'completeBy'} value={Moment(taskObj.completeBy).format('YYYY-MM-DD')}  className={'form-control'} onChange={(e)=>inputChange(e)}/>
                     </div>
                 </div>
-                <div className={'form-group'}>
+                <div className={'form-group'} >
                     <label htmlFor="">Priority:</label><br/>
                     {
                         errors.priority? <span className={'text-danger'}>{errors.priority.message}</span>: null
                     }
-                    <select name="priority" className={'form-control'}  value={taskObj.priority.length < 1? 'routine': taskObj.priority} onChange={(e)=>inputChange(e)}>
-                        <option value="extremely high">extremely high</option>
-                        <option value="high">high</option>
-                        <option value="routine">routine</option>
+                    <select name="priority" className={'form-select form-select-mb mb-6'}  value={taskObj.priority.length < 1? 'routine': taskObj.priority} onChange={(e)=>inputChange(e)}>
+                        <option value="extremely high">Extremely high</option>
+                        <option value="high">High</option>
+                        <option value="routine">Routine</option>
 
                     </select>
                 </div>
                 <div className={'form-group'}>
-                    <label htmlFor="">Description</label><br/>
+                    <label htmlFor="">Description:</label><br/>
                     {
                         errors.description? <span className={'text-danger'}>{errors.description.message}</span>: null
                     }
                     <input type="text" name={'description'} className={'form-control'} value={taskObj.description} onChange={(e)=>inputChange(e)}/>
                 </div>
-                <input type="submit" value={buttonLabel}/>
+                <input type="submit" value={buttonLabel} style={{ backgroundColor: "#6E8898", color: "white" }}/>
             </form>
         </div>
     )

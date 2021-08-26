@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {navigate} from "@reach/router";
 import TaskForm from "../components/taskForm";
+import NavButtons from "../components/navButtons";
 import axios from "axios";
 import Moment from "moment";
 
@@ -64,8 +65,17 @@ const EditTask = (props)=>{
 
     return(
         <div>
-            <h1>Edit Task</h1>
-            <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} handler={editTask} setErrors={setErrors} errors={errors} />
+            {/* <NavButtons button1={'home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/> */}
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div className="card" style={{backgroundColor: "#9FB1BC", borderRadius: "15px"}}>
+                        <div class="card-body p-3">
+                            <h1>Edit Task</h1>
+                            <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} handler={editTask} setErrors={setErrors} errors={errors} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     )

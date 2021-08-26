@@ -11,7 +11,8 @@ const NavButtons = (props)=>{
                     <img src={image} alt={'Logo'}/>
                 </div>
                 <div className={'col'}>
-                      <button className={'btn btn-link'} onClick={handler}>{button1}</button>
+                    <button className={'btn btn-link'} onClick={handler}>{button1}</button><Link to={button2URL} className={'btn'}>{button2}</Link>
+
                 </div>
             </div>
         </div>

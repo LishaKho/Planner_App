@@ -189,14 +189,18 @@ const ToDoPage = (props)=>{
 
     return(
         <div>
-            <NavButtons handler={logOut} button1={"LogOut"}  />
-            <div className={'d-inline-block align-top mt-5'}>
-                <h2>Add a Task</h2>
-                <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} addTask={setUpdatedTaskObj} errors={errors} setErrors={setErrors} handler={addTaskHandler} buttonLabel={'Add Task'}/>
-            </div>
-            <div className={'d-inline-block align-top mt-5'}>
-                <h2>Your To-Do List</h2>
-                <ToDoList toDoList={tasks} endDateSortAsc={sortEndDateAsc} endDateSortDesc={sortEndDateDesc} dateSortDesc={sortDateDesc} dateSortAce={sortDateAsc} prioritySortAce={sortPriorityAce} taskSortAce={sortTaskAce} taskSortDesc={sortTaskDesc} prioritySortDesc={sortPriorityDesc} priority={priority} task={task} date={date} endDate={endDate} setUpdatedTaskObj={setUpdatedTaskObj} handler={deleteTask} />
+            {/* <NavButtons handler={logOut} button1={"LogOut"}  /> */}
+            <div className="container d-flex justify-content-center">
+                <div className={'add-a-task col-md-5 d-inline-block align-top mt-5'}>
+                    <h2 style={{color: "black"}}>Add a Task</h2>
+                    <br/>
+                    <TaskForm taskObj={taskObj} setTaskObj={setTaskObj} addTask={setUpdatedTaskObj} errors={errors} setErrors={setErrors} handler={addTaskHandler} buttonLabel={'Add Task'}/>
+                </div>
+                <div className={'your-todo-list col-md-7 d-inline-block align-top mt-5'}>
+                    <h2 style={{color: "black"}}>Your To-Do List</h2>
+                    <br/>
+                    <ToDoList toDoList={tasks} endDateSortAsc={sortEndDateAsc} endDateSortDesc={sortEndDateDesc} dateSortDesc={sortDateDesc} dateSortAce={sortDateAsc} prioritySortAce={sortPriorityAce} taskSortAce={sortTaskAce} taskSortDesc={sortTaskDesc} prioritySortDesc={sortPriorityDesc} priority={priority} task={task} date={date} endDate={endDate} setUpdatedTaskObj={setUpdatedTaskObj} handler={deleteTask} />
+                </div>
             </div>
         </div>
     )
