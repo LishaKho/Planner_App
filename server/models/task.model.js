@@ -26,8 +26,8 @@ const TaskSchema = new mongoose.Schema({
     },
 
     startBy:{
-      type: Date,
-      required: [true, 'Start date is required']
+        type: Date,
+        required: [true, 'Start date is required']
     },
 
     completeBy:{
