@@ -4,7 +4,7 @@ import axios from "axios";
 import NavButtons from "../components/navButtons";
 
 const Login = (props) =>{
-
+    const [errors, setErrors] = useState({})
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -24,6 +24,7 @@ const Login = (props) =>{
             })
             .catch((error)=>{
                 console.log(error.response);
+                setErrors(error.response.data);
             })
     }
 
@@ -42,12 +43,16 @@ const Login = (props) =>{
                                         <div className="card-body p-4">
                                             <form onSubmit={login}>
                                                 <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="">Username:</label>
-                                                    <input className="form-control form-control-md" type="text" className={'form-control'} name={'username'} onChange={(e)=>setUsername(e.target.value)}/>
+                                                    <label className="form-label" htmlFor="">Username:</label><br/>
+                                                    {
+                                                        errors?<span className={'text-danger'}>{errors.message}</span>:
+                                                            null
+                                                    }
+                                                    <input className="form-control form-control-md" type="text"  name={'username'} onChange={(e)=>setUsername(e.target.value)}/>
                                                 </div>
                                                 <div className="form-outline mb-4">
                                                     <label className="form-label" htmlFor="">Password:</label>
-                                                    <input className="form-control form-control-md" type="password" className={'form-control'} name={'password'} onChange={(e)=>setPassword(e.target.value)}/>
+                                                    <input className="form-control form-control-md" type="password"  name={'password'} onChange={(e)=>setPassword(e.target.value)}/>
                                                 </div>
                                                 <input type="submit" value={'Login'} style={{ backgroundColor: "#6E8898", color: "white" }}/>
                                             </form>

@@ -11,8 +11,11 @@ const NavButtons = (props)=>{
                     <img src={image} alt={'Logo'}/>
                 </div>
                 <div className={'col'}>
-                    <button className={'btn btn-link'} onClick={handler}>{button1}</button><Link to={button2URL} className={'btn'}>{button2}</Link>
-
+                    <button className={'btn btn-link'}><Link to={button1URL}>{button1}</Link></button>
+                {
+                    handler? <button className={'btn btn-link'} onClick={handler}>Logout</button>:
+                        <button className={'btn btn-link'}><Link to={button2URL}>{button2}</Link></button>
+                }
                 </div>
             </div>
         </div>
