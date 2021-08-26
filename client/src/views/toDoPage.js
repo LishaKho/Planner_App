@@ -190,6 +190,7 @@ const ToDoPage = (props)=>{
     return(
         <div>
             {/* <NavButtons handler={logOut} button1={"LogOut"}  /> */}
+            <NavButtons button1={'Back To-Do-List'} button1URL={'/myPlanner'} button2={'Logout'} handler={logOut} />
             <div className="container d-flex justify-content-center">
                 <div className={'add-a-task col-md-5 d-inline-block align-top mt-5'}>
                     <h2 style={{color: "black"}}>Add a Task</h2>

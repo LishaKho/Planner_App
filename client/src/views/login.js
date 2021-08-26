@@ -31,7 +31,7 @@ const Login = (props) =>{
 
     return(
         <div>
-            <NavButtons button1={'home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/>
+            <NavButtons button1={'Home'} button1URL={'/'} button2={'Register'} button2URL={'/registration'}/>
             <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
                 <h1 style={{ color: "#2E5266" }}>Welcome Back!</h1>
                 <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
