@@ -42,7 +42,7 @@ const Registration = (props) =>{
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div className="card" style={{backgroundColor: "#9FB1BC", borderRadius: "15px"}}>
                             <div className="card-body p-5">
-                                <h1 style={{ color: "#2E5266" }}>User Registration</h1>
+                                <h1 style={{ color: "#2E5266" }}>📋 User Registration 📋</h1>
                                 <UserForm user={userObj} errors={errors} setUser={setUserObj} handler={register}/>
                             </div>
                         </div>
