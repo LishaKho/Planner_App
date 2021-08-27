@@ -36,7 +36,9 @@ const Registration = (props) =>{
 
     return(
         <div className="vh-100" style={{backgroundColor: "#D3D0CB"}}>
-            <NavButtons button1={'home'} button1URL={'/'} button2={'LogIn'} button2URL={'/'}/>
+            <div className=" col-md-15">
+            <NavButtons button1={'Home'} button1URL={'/'} button2={'LogIn'} button2URL={'/'}/>
+            </div>
             <div className="container h-50">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">

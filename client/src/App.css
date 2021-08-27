@@ -21,6 +21,19 @@
   width: 50% important;
 }
 
+.nav-button {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+/* .navbar-alignment {
+  display: flex;
+  flex-direction: column;
+} */
+
 .your-todo-list{
   background-color: #9FB1BC;
   width: 10020px;
@@ -32,6 +45,7 @@
 }
 
 img {
+  margin-left: 50px;
   width: 100px;
   height: 100px;
 }
